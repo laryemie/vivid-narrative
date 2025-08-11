@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Brand Colors - Purple & Sophisticated Palette */
+    --primary: 259 60% 43%; /* #512CB4 */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 259 70% 55%;
+    --primary-dark: 259 50% 30%;
+    
+    /* Sophisticated Neutrals inspired by ThoughtLeadr, updated with tertiary and secondary */
+    --background: 0 0% 98%; /* #FAFAFA as tertiary */
+    --foreground: 25 25% 15%; /* Rich dark brown */
+    
+    --card: 0 0% 98%; /* #FAFAFA as tertiary */
+    --card-foreground: 25 25% 15%;
+    
+    --secondary: 84 91% 68%; /* #CCF86E */
+    --secondary-foreground: 25 25% 15%;
+    --secondary-dark: 84 80% 55%; /* Darker shade of #CCF86E */
+    
+    --accent: 84 91% 68%; /* #CCF86E replacing gold */
+    --accent-foreground: 25 25% 15%;
+    --accent-dark: 84 80% 55%; /* Darker shade of #CCF86E */
+    
+    --muted: 0 0% 95%; /* Light neutral based on tertiary */
+    --muted-foreground: 25 15% 45%;
+    
+    --border: 0 0% 90%; /* Light border based on tertiary */
+    --input: 0 0% 95%;
+    --ring: 259 60% 43%; /* Matches primary */
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Premium Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(259 60% 43%), hsl(259 70% 55%)); /* Primary gradient */
+    --gradient-warm: linear-gradient(180deg, hsl(0 0% 98%), hsl(84 91% 68%)); /* Tertiary to secondary */
+    --gradient-accent: linear-gradient(45deg, hsl(84 80% 55%), hsl(84 91% 68%)); /* Secondary gradient */
+    
+    /* Premium Shadows */
+    --shadow-soft: 0 4px 20px hsl(25 25% 15% / 0.08);
+    --shadow-medium: 0 8px 30px hsl(25 25% 15% / 0.12);
+    --shadow-large: 0 15px 50px hsl(25 25% 15% / 0.15);
+    --shadow-purple: 0 8px 32px hsl(259 60% 43% / 0.2); /* Matches primary */
+    
+    /* Typography Scale */
+    --font-size-hero: clamp(2.5rem, 5vw, 4rem);
+    --font-size-xl: clamp(1.75rem, 3.5vw, 2.5rem);
+    --font-size-lg: clamp(1.25rem, 2.5vw, 1.5rem);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --primary: 259 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 259 60% 65%;
+    --primary-dark: 259 50% 30%;
+    
+    --background: 25 25% 8%;
+    --foreground: 45 20% 95%;
+    
+    --card: 25 20% 12%;
+    --card-foreground: 45 20% 95%;
+    
+    --secondary: 84 91% 68%; /* #CCF86E */
+    --secondary-foreground: 45 20% 95%;
+    --secondary-dark: 84 80% 55%;
+    
+    --accent: 84 91% 68%; /* #CCF86E replacing dark gray/gold */
+    --accent-foreground: 45 20% 95%;
+    --accent-dark: 84 80% 55%;
+    
+    --muted: 25 10% 18%;
+    --muted-foreground: 45 10% 65%;
+    
+    --border: 25 10% 20%;
+    --input: 25 10% 20%;
+    --ring: 259 70% 55%;
+    
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(259 70% 55%), hsl(259 60% 65%));
+    --gradient-warm: linear-gradient(180deg, hsl(25 25% 8%), hsl(84 91% 68%)); /* Secondary in dark mode */
+    --gradient-accent: linear-gradient(45deg, hsl(84 80% 55%), hsl(84 91% 68%));
+    
+    /* Dark mode shadows */
+    --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 30px hsl(0 0% 0% / 0.4);
+    --shadow-large: 0 15px 50px hsl(0 0% 0% / 0.5);
+    --shadow-purple: 0 8px 32px hsl(259 70% 55% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "kern";
+  }
+  
+  /* Typography Styles */
+  .font-serif {
+    font-family: "Josefin Sans", "Georgia", serif;
+  }
+  
+  .text-hero {
+    font-size: var(--font-size-hero);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-display {
+    font-size: var(--font-size-xl);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  
+  .text-large {
+    font-size: var(--font-size-lg);
+    line-height: 1.4;
+  }
+  
+  /* Smooth transitions for all interactive elements */
+  a, button, [role="button"] {
+    transition: var(--transition-smooth);
+  }
+  
+  /* Premium scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .shadow-large {
+    box-shadow: var(--shadow-large);
+  }
+  
+  .shadow-purple {
+    box-shadow: var(--shadow-purple);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+}
+
+/* Theme Toggle Indicator */
+.theme-toggle-indicator {
+  transition: background-color var(--transition-smooth);
+}
+
+/* Animations */
+@keyframes flyIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px hsl(84 91% 68% / 0.8), 0 0 10px hsl(84 91% 68% / 0.8), 0 0 15px hsl(84 91% 68% / 0.8);
+  }
+  50% {
+    text-shadow: 0 0 10px hsl(84 91% 68% / 0.9), 0 0 20px hsl(84 91% 68% / 0.9), 0 0 30px hsl(84 91% 68% / 0.9);
+  }
+  100% {
+    text-shadow: 0 0 5px hsl(84 91% 68% / 0.8), 0 0 10px hsl(84 91% 68% / 0.8), 0 0 15px hsl(84 91% 68% / 0.8);
+  }
+}
+
+.animate-fly-in {
+  animation: flyIn 1.5s ease-out forwards;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Dark Mode Adjustments for Animations */
+.dark .animate-glow {
+  text-shadow: 0 0 5px hsl(84 91% 68% / 0.6), 0 0 10px hsl(84 91% 68% / 0.6), 0 0 15px hsl(84 91% 68% / 0.6);
+  animation: glow 2s ease-in-out infinite;
+}
