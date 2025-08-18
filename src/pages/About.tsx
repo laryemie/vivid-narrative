@@ -9,89 +9,69 @@ export default function About() {
     {
       title: 'Authenticity',
       description: 'We honor your unique voice. We refine it, never replace it.',
-      icon: 'fa-user' // Icon for Authenticity
+      icon: 'fa-user',
     },
     {
       title: 'Excellence',
       description: 'We hold ourselves to the highest standards—delivering flawless content, every time.',
-      icon: 'fa-star' // Icon for Excellence
+      icon: 'fa-star',
     },
     {
       title: 'Empowerment',
       description: 'We give you the tools and confidence to own your narrative and lead with conviction.',
-      icon: 'fa-handshake' // Icon for Empowerment
+      icon: 'fa-handshake',
     },
     {
       title: 'Strategic Impact',
       description: 'We align every story and post with clear objectives that move your brand forward.',
-      icon: 'fa-bullseye' // Icon for Strategic Impact
+      icon: 'fa-bullseye',
     },
     {
       title: 'Inclusivity',
       description: 'We craft culturally intelligent storytelling that resonates locally and globally.',
-      icon: 'fa-globe' // Icon for Inclusivity
-    }
+      icon: 'fa-globe',
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background/90 to-gray-50 dark:from-gray-900/90 dark:to-gray-800">
       <Navigation />
-      
-      <main>
-        {/* Hero Section with Background Image */}
-        <section className="py-20 bg-[url('/vivid-narrative-uploads/about.jpg')] bg-cover bg-center mx-auto px-6 relative min-h-[400px] z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-secondary/10 to-primary/10 z-0"></div>
 
-          <h1 className="text-6xl font-bold text-secondary uppercase text-center tracking-wide">
+      <main>
+        {/* Hero Section */}
+        <section className="py-16 sm:py-20 bg-gradient-to-b from-secondary/20 to-primary/10 dark:from-secondary-900/20 dark:to-primary-900/10">
+          <div className="container mx-auto px-4 sm:px-6 text-center">
+            <div className="inline-flex items-center justify-center space-x-6 sm:space-x-8 animate-fade-in">
+              <img
+                src="/favicon.ico"
+                alt="Vivid Narrative Favicon"
+                className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full shadow-lg transition-transform hover:scale-105"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = 'https://via.placeholder.com/48?text=Favicon';
+                }}
+              />
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-josefin font-bold text-primary dark:text-primary-200 bg-gradient-to-r from-transparent to-primary/20 dark:to-primary-200/20 bg-clip-text">
                 Our Story
               </h1>
-          
+            </div>
+          </div>
         </section>
 
         {/* Story Content */}
-        <section className="py-16 bg-gradient-to-b from-primary/10 to-secondary/10">
-          <div className="container mx-auto px-6">
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="prose prose-lg mx-auto text-foreground">
-              <div className="relative z-10 text-center flex flex-col items-center justify-center h-full">
-            
-              <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary/60 to-secondary/60 rounded-full shadow-soft mb-6">
-              <p className="text-2xl font-bold text-accent-foreground uppercase tracking-wide">
-                Our Story at Vivid Narrative
-              </p>
-            </div>
-            <p className="text-lg md:text-xl font-josefin text-foreground mb-6 max-w-2xl">
-              Discover the journey and values driving us to empower your personal brand.
-            </p>
-          </div>
-                <p className="text-lg leading-relaxed mb-8">
-                  The idea for Vivid Narrative began with a simple yet powerful insight: brilliant professionals 
-                  often struggle to communicate their true value online. They have the expertise, vision, and 
-                  drive—but their voices often get lost in generic content or buried beneath inconsistent messaging.
-                  Working with clients across various industries, we validated that the problem wasn't talent, 
-                  but rather storytelling. So we built a different kind of agency: one founded on the belief 
-                  that your narrative is your edge.
+        <section className="py-12 sm:py-16 bg-gradient-to-b from-primary/10 to-secondary/10 dark:from-primary-900/10 dark:to-secondary-900/10">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="max-w-3xl mx-auto">
+              
+              <div className="prose prose-sm sm:prose-base md:prose-lg text-foreground dark:text-gray-200">
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">
+                  The idea for Vivid Narrative began with a simple yet powerful insight: brilliant professionals often struggle to communicate their true value online. They have the expertise, vision, and drive—but their voices often get lost in generic content or buried beneath inconsistent messaging. Working with clients across various industries, we validated that the problem wasn't talent, but rather storytelling. Vivid stands for clarity and memorability. Narrative grounds us in purpose and the power of a story told right. We built a different kind of agency: one founded on the belief that <strong>your narrative is your edge</strong>.
                 </p>
-                
-                <div className="bg-gradient-to-r from-secondary/80 to-secondary/40 rounded-2xl p-8 my-12 shadow-soft">
-                  <p className="text-xl font-semibold text-center mb-4">
-                    <span className="text-primary font-bold font-josefin">Vivid</span> stands for clarity and memorability.
-                  </p>
-                  <p className="text-xl font-semibold text-center">
-                    <span className="text-primary font-bold font-josefin">Narrative</span> grounds us in purpose and the power of a story told right.
-                  </p>
-                </div>
-                
-                <p className="text-lg leading-relaxed mb-8">
-                  Today, we partner with CEOs, founders, coaches, freelancers, and rising professionals to 
-                  amplify their stories—not just for show, but for strategic impact. We deliver content that 
-                  reflects your tone, truth, and trajectory; content that attracts the right opportunities, 
-                  builds confidence, and drives meaningful influence.
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">
+                  Today, we partner with CEOs, founders, coaches, freelancers, and rising professionals to amplify their stories—not just for show, but for strategic impact. We deliver content that reflects your tone, truth, and trajectory; content that attracts the right opportunities, builds confidence, and drives meaningful influence.
                 </p>
-                
-                <p className="text-lg leading-relaxed font-semibold text-primary">
-                  Because at Vivid Narrative, we believe influence starts from within. And when you tell 
-                  your story with intention, everything changes.
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed font-semibold text-foreground dark:text-gray-100">
+                  Because at Vivid Narrative, we believe <strong>influence starts from within</strong>. And when you tell your story with intention, everything changes.
                 </p>
               </div>
             </div>
@@ -99,34 +79,29 @@ export default function About() {
         </section>
 
         {/* Core Values */}
-        <section className="py-16 bg-gradient-to-b from-secondary/10 to-primary/10">
-          <div className="container mx-auto px-6">
+        <section className="py-12 sm:py-16 bg-gradient-to-b from-secondary/10 to-primary/10 dark:from-secondary-900/10 dark:to-primary-900/10">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary/60 to-secondary/60 rounded-full shadow-soft mb-6">
-                <p className="text-2xl font-bold text-accent-foreground uppercase tracking-wide">
+              <div className="inline-block px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-gradient-to-r from-primary/70 to-secondary/70 rounded-full shadow-md mb-6 sm:mb-8 md:mb-12 hover:bg-opacity-90 transition-all duration-300">
+                <p className="text-lg sm:text-xl md:text-2xl font-bold text-accent-foreground uppercase tracking-wide">
                   Our Core Values
                 </p>
               </div>
-              <p className="text-lg text-foreground mb-16">
+              <p className="text-base sm:text-lg md:text-xl text-foreground dark:text-gray-200 mb-8 sm:mb-12 md:mb-16">
                 These principles guide every word we write, every strategy we design, and every partnership we forge:
               </p>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
                 {values.map((value, index) => (
                   <div
                     key={index}
-                    className={`p-4 transition-opacity duration-300 delay-${index * 100} ${
-                      index % 2 === 0
-                        ? 'bg-gradient-to-r from-secondary/20 to-secondary/10'
-                        : 'bg-gradient-to-r from-secondary/10 to-secondary/20'
-                    } rounded-lg shadow-soft border-4 border-primary h-full`}
+                    className="bg-white/95 dark:bg-gray-800/95 rounded-2xl p-6 sm:p-7 md:p-8 border-2 border-gray-100 dark:border-gray-700 shadow-lg dark:shadow-gray-900/60 hover:shadow-xl dark:hover:shadow-gray-700/60 hover:-translate-y-2 transition-all duration-300 animate-fade-in"
                   >
                     <div className="text-center">
-                      <i className={`fas ${value.icon} text-2xl text-primary mb-2`}></i>
-                      <h3 className="text-lg font-josefin font-bold text-primary mb-4">
+                      <i className={`fas ${value.icon} text-2xl sm:text-3xl md:text-4xl text-primary dark:text-primary-200 mb-4`}></i>
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-josefin font-bold text-foreground dark:text-gray-100 mb-4">
                         {value.title}
                       </h3>
-                      <p className="text-foreground leading-relaxed">
+                      <p className="text-foreground dark:text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
                         {value.description}
                       </p>
                     </div>
@@ -138,15 +113,15 @@ export default function About() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-b from-primary/10 to-secondary/10">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-display font-josefin font-bold text-foreground mb-8">
+        <section className="py-12 sm:py-16 bg-gradient-to-b from-primary/10 to-secondary/10 dark:from-primary-900/10 dark:to-secondary-900/10">
+          <div className="container mx-auto px-4 sm:px-6 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-josefin font-bold text-foreground dark:text-gray-100 mb-6 sm:mb-8 md:mb-10">
               Ready to Tell Your Story, Your Way?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground dark:text-gray-400 mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto">
               Let's partner to create a personal brand that's unmistakably you—and impossible to ignore.
             </p>
-            <Button variant="premium" size="xl" asChild>
+            <Button variant="premium" size="lg" asChild className="text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 hover:bg-primary/90 transition-colors duration-300">
               <Link to="/contact">Build Your Narrative →</Link>
             </Button>
           </div>

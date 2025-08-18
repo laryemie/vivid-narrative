@@ -10,11 +10,7 @@ export const HeroSection: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto">
           <div className="max-w-4xl">
-            <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full shadow-soft mb-6">
-              <p className="text-sm font-medium text-accent-foreground uppercase tracking-wide">
-                Trusted by ambitious professionals
-              </p>
-            </div>
+            
             
             <h1 className="text-hero font-josefin font-bold text-foreground mb-8 leading-tight">
               Influence Starts With a{' '}

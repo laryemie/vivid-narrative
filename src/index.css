@@ -105,6 +105,9 @@ All colors MUST be HSL.
   }
 }
 
+/* Load Font Awesome via CDN */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css');
+
 @layer base {
   * {
     @apply border-border;

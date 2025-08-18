@@ -57,23 +57,23 @@ const Footer: React.FC = () => {
                 <ul className="space-y-2">
                   <li>
                     <Link to="/" className="text-foreground hover:text-primary font-josefin flex items-center">
-                      <i className="fas fa-home mr-2"></i> Home
+                      <i className="fa-solid fa-home mr-2"></i> Home
                     </Link>
                   </li>
                   <li>
                     <Link to="/services" className="text-foreground hover:text-primary flex items-center">
-                      <i className="fas fa-cogs mr-2"></i> Explore Our Services
+                      <i className="fa-solid fa-cogs mr-2"></i> Explore Our Services
                     </Link>
                   </li>
                   <li>
                     <Link to="/about" className="text-foreground hover:text-primary flex items-center">
-                      <i className="fas fa-info-circle mr-2"></i> About Us
+                      <i className="fa-solid fa-info-circle mr-2"></i> About Us
                     </Link>
                   </li>
                   
                   <li>
                     <Link to="/contact" className="text-foreground hover:text-primary flex items-center">
-                      <i className="fas fa-envelope mr-2"></i> Book A Discovery Call
+                      <i className="fa-solid fa-envelope mr-2"></i> Book A Discovery Call
                     </Link>
                   </li>
                 </ul>
@@ -87,27 +87,24 @@ const Footer: React.FC = () => {
                 <ul className="space-y-2">
                   <li>
                     <a href="https://vividnarrative.com" className="text-semibold hover:text-primary font-josefin flex items-center">
-                      <i className="fas fa-globe mr-2"></i> vividnarrative.com
+                      <i className="fa-solid fa-globe mr-2"></i> vividnarrative.com
                     </a>
                   </li>
                   <li>
                     <a href="mailto:hello@vividnarrative.com" className="text-foreground font-josefin hover:text-primary flex items-center">
-                      <i className="fas fa-envelope mr-2"></i> hello@vividnarrative.com
+                      <i className="fa-solid fa-envelope mr-2"></i> hello@vividnarrative.com
                     </a>
                   </li>
                 </ul>
                 <div className="flex items-center mt-4 space-x-2">
-                  <a href="" target="_blank" className="bg-primary rounded-full w-10 h-10 flex items-center justify-center text-white hover:bg-primary-dark">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
                   <a href="https://x.com/vividnarrative_" target="_blank" className="bg-primary rounded-full w-10 h-10 flex items-center justify-center text-white hover:bg-primary-dark">
-                    <i className="fab fa-twitter"></i>
+                    <i className="fa-brands fa-x-twitter"></i>
                   </a>
                   <a href="https://www.instagram.com/vivid.narrative/" target="_blank" className="bg-primary rounded-full w-10 h-10 flex items-center justify-center text-white hover:bg-primary-dark">
-                    <i className="fab fa-instagram"></i>
+                    <i className="fa-brands fa-instagram"></i>
                   </a>
                   <a href="https://www.linkedin.com/company/vividnarrative/" target="_blank" className="bg-primary rounded-full w-10 h-10 flex items-center justify-center text-white hover:bg-primary-dark">
-                    <i className="fab fa-linkedin-in"></i>
+                    <i className="fa-brands fa-linkedin-in"></i>
                   </a>
                 </div>
               </div>
@@ -139,7 +136,7 @@ const Footer: React.FC = () => {
             <div className="text-center md:text-left mb-4 md:mb-0">
               <span className="text-foreground">
                 <Link to="/" className="hover:text-primary border-b border-transparent hover:border-primary">
-                  <i className="fas fa-copyright mr-2"></i>Vivid Narrative
+                  <i className="fa-solid fa-copyright mr-2"></i>Vivid Narrative
                 </Link>
                 , 2025. All rights reserved.
               </span>

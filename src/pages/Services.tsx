@@ -25,8 +25,7 @@ export default function Services() {
         'Visual Identity & Profile Optimization',
         'Engagement & Credibility Framework',
       ],
-      note: '📌 Ideal for professionals seeking clarity before execution.',
-      price: 'Starts at $500',
+      note: 'We can provide more for both your personal brand and overall business goals, just say the word.',
       tagline: 'You’ve been doing great work behind the scenes. This is how the world finally sees it.',
       icon: 'fa-chart-line',
     },
@@ -42,13 +41,12 @@ export default function Services() {
         'Advisory & Coaching Touchpoints',
         'Access to Team Support (for evolving brand needs)',
       ],
-      note: '📌 Available in Silver & Gold tiers. Designed for growth.',
-      price: 'Starting at $800/Month',
+      note: 'We can provide more for both your personal brand and overall business goals, just say the word.',
       tagline: 'You focus on the work. We ensure the world is aware of it.',
       icon: 'fa-calendar-check',
     },
     {
-      title: '🧩 Add-On Services',
+      title: '(3) Add-On Services',
       description: 'Extra Support for High-Impact Moments. Need more? Our premium add-ons are designed for those pivotal times — launching something new, stepping into the spotlight, or giving your brand the upgrade it deserves.',
       items: [
         'Personal Website Copywriting & Development',
@@ -56,91 +54,87 @@ export default function Services() {
         'Press Kit & Interview Coaching',
         'Digital Marketing',
       ],
-      note: '📌 Pricing available upon request. Scope varies.',
+      note: 'We can provide more for both your personal brand and overall business goals, just say the word.',
       icon: 'fa-puzzle-piece',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background/90 to-gray-50 dark:from-gray-900/90 dark:to-gray-800">
       <Navigation />
 
       <main>
-        {/* Hero Section with Background Image */}
-        <section className="py-16 bg-[url('/vivid-narrative-uploads/services.jpg')] bg-cover bg-center mx-auto px-6 relative min-h-[400px] z-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-background/70 to-transparent" />
-          <div className="container mx-auto px-6 text-center relative z-10">
-            <div className="max-w-4xl mx-auto">
-
-              
-              
-              <p className="text-xl text-black leading-relaxed">
-                
-              </p>
+        {/* Hero Section */}
+        <section className="py-16 sm:py-20 bg-gradient-to-b from-secondary/20 to-primary/10 dark:from-secondary-900/20 dark:to-primary-900/10">
+          <div className="container mx-auto px-6 text-center">
+            <div className="inline-flex items-center justify-center space-x-6 sm:space-x-8 animate-fade-in">
+              <img
+                src="/favicon.ico"
+                alt="Vivid Narrative Favicon"
+                className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full shadow-lg transition-transform hover:scale-105"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = 'https://via.placeholder.com/48?text=Favicon';
+                }}
+              />
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-josefin font-bold text-primary dark:text-primary-200 bg-gradient-to-r from-transparent to-primary/20 dark:to-primary-200/20 bg-clip-text">
+                Explore Our Services
+              </h1>
             </div>
           </div>
         </section>
 
         {/* Services Section with Gradient Background */}
-        <section className="py-16 bg-gradient-to-b from-primary/10 to-secondary/10">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary/60 to-secondary/60 rounded-full shadow-soft mb-6">
-              <p className="text-2xl font-bold text-accent-foreground uppercase tracking-wide">
-                Our Services
-              </p>
+        <section className="py-12 sm:py-16 bg-gradient-to-b from-primary/10 to-secondary/10 dark:from-primary-900/10 dark:to-secondary-900/10">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center mb-12 sm:mb-16">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-josefin font-semibold text-primary dark:text-primary-200 max-w-3xl mx-auto leading-snug">
+                Discover tailored plans to amplify your personal brand with content that reflects your voice and vision.
+              </h3>
             </div>
-              <h2 className="text-3xl md:text-4xl font-josefin font-bold text-gray-800 max-w-3xl mx-auto leading-snug">
-              Discover tailored plans to amplify your personal brand with content that reflects your voice and vision.
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
               {services.map((service, index) => (
                 <div
                   key={index}
-                  className="bg-white/70 backdrop-blur-md rounded-xl p-6 shadow-lg transform translate-y-2 hover:-translate-y-1 transition-transform duration-300 border border-gray-100"
+                  className="bg-white/95 dark:bg-gray-800/95 rounded-2xl p-6 sm:p-7 md:p-8 border-2 border-gray-100 dark:border-gray-700 shadow-lg dark:shadow-gray-900/60 hover:shadow-xl dark:hover:shadow-gray-700/60 hover:-translate-y-2 transition-all duration-300 animate-fade-in"
                 >
-                  {service.price && (
-                    <div className="text-xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2 text-center">
-                      {service.price}
-                    </div>
-                  )}
                   <div className="text-center mb-4">
-                    <i className={`fas ${service.icon} text-3xl text-primary mb-2`}></i>
-                    <h3 className="text-xl font-josefin font-medium text-gray-900">
+                    <i className={`fas ${service.icon} text-2xl sm:text-3xl md:text-4xl text-primary dark:text-primary-200 mb-4`}></i>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-josefin font-medium text-foreground dark:text-gray-100">
                       {service.title}
                     </h3>
                   </div>
-                  <p className="text-gray-600 mb-4 text-base leading-relaxed text-center">{service.description}</p>
-
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base md:text-lg leading-relaxed text-left">
+                    <strong className="block">{service.description.split('.')[0]}.</strong>
+                    {service.description.split('.').slice(1).join('.').trim()}.
+                  </p>
                   <button
                     onClick={() => setExpanded({ ...expanded, [Object.keys(expanded)[index]]: !expanded[Object.keys(expanded)[index]] })}
-                    className="flex items-center justify-center text-gray-700 font-medium mb-4 hover:text-primary transition-colors"
+                    className="flex items-start justify-start text-gray-700 dark:text-gray-300 font-medium mb-4 hover:text-primary dark:hover:text-primary-200 transition-colors text-sm sm:text-base touch-manipulation"
                   >
                     <i className={`fas fa-${expanded[Object.keys(expanded)[index]] ? 'minus' : 'plus'} mr-2`}></i>
                     {expanded[Object.keys(expanded)[index]] ? 'Hide Details' : 'View Details'}
                   </button>
-
                   {expanded[Object.keys(expanded)[index]] && (
-                    <ul className="space-y-2 text-gray-600 text-sm leading-relaxed mb-4 text-center">
+                    <ul className="space-y-2 text-gray-600 dark:text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed mb-4 text-left">
                       {service.items.map((item, i) => (
-                        <li key={i} className="flex justify-center items-center">
-                          <i className="fas fa-check-circle text-primary mr-2"></i>
+                        <li key={i} className="flex items-start">
+                          <i className="fas fa-check-circle text-primary dark:text-primary-200 mr-2 mt-1"></i>
                           {item}
                         </li>
                       ))}
                     </ul>
                   )}
-
                   {service.note && (
-                    <p className="mt-2 text-gray-700 text-sm flex justify-center items-center">
-                      <i className="fas fa-info-circle text-primary mr-2"></i>
+                    <p className="mt-2 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base flex items-start">
+                      <i className="fas fa-info-circle text-primary dark:text-primary-200 mr-2 mt-1"></i>
                       {service.note}
                     </p>
                   )}
                   {service.tagline && (
-                    <p className="mt-2 italic text-gray-600 text-center">{service.tagline}</p>
+                    <p className="mt-2 italic text-gray-600 dark:text-gray-400 text-center text-xs sm:text-sm md:text-base">
+                      {service.tagline}
+                    </p>
                   )}
                 </div>
               ))}
@@ -149,15 +143,15 @@ export default function Services() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-b from-secondary/10 to-primary/10">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-display font-josefin font-bold text-foreground mb-8">
+        <section className="py-12 sm:py-16 bg-gradient-to-b from-secondary/10 to-primary/10 dark:from-secondary-900/10 dark:to-primary-900/10">
+          <div className="container mx-auto px-4 sm:px-6 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-josefin font-bold text-foreground dark:text-gray-100 mb-6 sm:mb-8 md:mb-10">
               Still figuring out what you need?
             </h2>
-            <p className="text-xl text-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground dark:text-gray-400 mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto">
               We’re happy to guide you through. Book a discovery call below and let’s talk through it.
             </p>
-            <Button variant="premium" size="xl" asChild>
+            <Button variant="premium" size="lg" asChild className="text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 hover:bg-primary/90 transition-colors duration-300">
               <Link to="/contact">→ Book a Free Discovery Call</Link>
             </Button>
           </div>
