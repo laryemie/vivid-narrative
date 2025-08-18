@@ -1,0 +1,42 @@
+name: Build and publish static files for Porkbun
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # Set this to "dist" if you use Vite; "build" if CRA
+      - name: Choose build output dir
+        id: outdir
+        run: |
+          if [ -d "dist" ]; then echo "dir=dist" >> $GITHUB_OUTPUT; elif [ -d "build" ]; then echo "dir=build" >> $GITHUB_OUTPUT; else echo "No dist or build dir found" && exit 1; fi
+
+      - name: Publish to porkbun-deploy branch
+        run: |
+          rm -rf /tmp/publish && mkdir -p /tmp/publish
+          cp -R ${{ steps.outdir.outputs.dir }}/. /tmp/publish/
+          cd /tmp/publish
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Publish static site"
+          git branch -M porkbun-deploy
+          git remote add origin ${{ github.server_url }}/${{ github.repository }}.git
+          git push -f origin porkbun-deploy
