@@ -15,22 +15,17 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install deps
-        run: npm ci
+      # Use npm install (Vite projects usually don't have package-lock.json)
+      - name: Install dependencies
+        run: npm install
 
-      - name: Build
+      - name: Build with Vite
         run: npm run build
-
-      # Set this to "dist" if you use Vite; "build" if CRA
-      - name: Choose build output dir
-        id: outdir
-        run: |
-          if [ -d "dist" ]; then echo "dir=dist" >> $GITHUB_OUTPUT; elif [ -d "build" ]; then echo "dir=build" >> $GITHUB_OUTPUT; else echo "No dist or build dir found" && exit 1; fi
 
       - name: Publish to porkbun-deploy branch
         run: |
           rm -rf /tmp/publish && mkdir -p /tmp/publish
-          cp -R ${{ steps.outdir.outputs.dir }}/. /tmp/publish/
+          cp -R dist/. /tmp/publish/   # Vite always outputs to "dist"
           cd /tmp/publish
           git init
           git config user.name "github-actions[bot]"
