@@ -46,7 +46,7 @@ export default function Contact() {
     });
     setTimeout(() => {
       window.location.href =
-        "https://calendly.com/koyum-vividnarrative/30min";
+        "https://calendly.com/thevividnarrative/30min";
     }, 1500);
   };
 
@@ -112,7 +112,7 @@ export default function Contact() {
                   for building a compelling and consistent personal brand.
                 </p>
                 <Link
-                  to="https://calendly.com/koyum-vividnarrative/30min"
+                  to="https://calendly.com/thevividnarrative/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full"
@@ -362,14 +362,16 @@ export default function Contact() {
                   </div>
 
                   {/* Submit */}
-                  <Button
-                    type="submit"
-                    variant="premium"
-                    size="lg"
-                    className="w-full h-12 text-base rounded-full"
-                  >
+                  <Link
+                  to="https://calendly.com/thevividnarrative/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
+                >
+                  <Button className="w-full rounded-full px-6 py-3 text-sm sm:text-base">
                     Submit & Schedule Call
                   </Button>
+                  </Link>
 
                   <p className="text-xs sm:text-sm text-muted-foreground text-center mt-4">
                     👉 After submitting, you’ll be redirected to our
