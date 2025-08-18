@@ -1,7 +1,11 @@
 name: Build and publish static files for Porkbun
+
 on:
   push:
     branches: [ main ]
+
+permissions:
+  contents: write   # allow GITHUB_TOKEN to push
 
 jobs:
   build:
@@ -23,6 +27,8 @@ jobs:
         run: npm run build
 
       - name: Publish to porkbun-deploy branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           rm -rf /tmp/publish && mkdir -p /tmp/publish
           cp -R dist/. /tmp/publish/   # Vite always outputs to "dist"
@@ -33,5 +39,5 @@ jobs:
           git add .
           git commit -m "Publish static site"
           git branch -M porkbun-deploy
-          git remote add origin ${{ github.server_url }}/${{ github.repository }}.git
+          git remote add origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
           git push -f origin porkbun-deploy
