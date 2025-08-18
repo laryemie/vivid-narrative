@@ -11,7 +11,7 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[70vh] sm:min-h-screen flex items-center bg-[url('/vivid-narrative-Uploads/hero.jpg')] bg-contain bg-center bg-no-repeat md:bg-cover">
+    <section className="relative min-h-[70vh] sm:min-h-screen flex items-center bg-[url('/vivid-narrative-uploads/hero.jpg')] bg-contain bg-center bg-no-repeat md:bg-cover">
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/20 md:from-background/70 md:via-background/50 md:to-transparent" />
 

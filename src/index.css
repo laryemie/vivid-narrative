@@ -18,37 +18,37 @@ All colors MUST be HSL.
     --background: 0 0% 98%; /* #FAFAFA as tertiary */
     --foreground: 25 25% 15%; /* Rich dark brown */
     
-    --card: 0 0% 98%; /* #FAFAFA as tertiary */
+    --card: 0 0% 98%;
     --card-foreground: 25 25% 15%;
     
     --secondary: 84 91% 68%; /* #CCF86E */
     --secondary-foreground: 25 25% 15%;
-    --secondary-dark: 84 80% 55%; /* Darker shade of #CCF86E */
+    --secondary-dark: 84 80% 55%;
     
-    --accent: 84 91% 68%; /* #CCF86E replacing gold */
+    --accent: 84 91% 68%;
     --accent-foreground: 25 25% 15%;
-    --accent-dark: 84 80% 55%; /* Darker shade of #CCF86E */
+    --accent-dark: 84 80% 55%;
     
-    --muted: 0 0% 95%; /* Light neutral based on tertiary */
+    --muted: 0 0% 95%;
     --muted-foreground: 25 15% 45%;
     
-    --border: 0 0% 90%; /* Light border based on tertiary */
+    --border: 0 0% 90%;
     --input: 0 0% 95%;
-    --ring: 259 60% 43%; /* Matches primary */
+    --ring: 259 60% 43%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
     /* Premium Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(259 60% 43%), hsl(259 70% 55%)); /* Primary gradient */
-    --gradient-warm: linear-gradient(180deg, hsl(0 0% 98%), hsl(84 91% 68%)); /* Tertiary to secondary */
-    --gradient-accent: linear-gradient(45deg, hsl(84 80% 55%), hsl(84 91% 68%)); /* Secondary gradient */
+    --gradient-hero: linear-gradient(135deg, hsl(259 60% 43%), hsl(259 70% 55%));
+    --gradient-warm: linear-gradient(180deg, hsl(0 0% 98%), hsl(84 91% 68%));
+    --gradient-accent: linear-gradient(45deg, hsl(84 80% 55%), hsl(84 91% 68%));
     
     /* Premium Shadows */
     --shadow-soft: 0 4px 20px hsl(25 25% 15% / 0.08);
     --shadow-medium: 0 8px 30px hsl(25 25% 15% / 0.12);
     --shadow-large: 0 15px 50px hsl(25 25% 15% / 0.15);
-    --shadow-purple: 0 8px 32px hsl(259 60% 43% / 0.2); /* Matches primary */
+    --shadow-purple: 0 8px 32px hsl(259 60% 43% / 0.2);
     
     /* Typography Scale */
     --font-size-hero: clamp(2.5rem, 5vw, 4rem);
@@ -74,11 +74,11 @@ All colors MUST be HSL.
     --card: 25 20% 12%;
     --card-foreground: 45 20% 95%;
     
-    --secondary: 84 91% 68%; /* #CCF86E */
+    --secondary: 84 91% 68%;
     --secondary-foreground: 45 20% 95%;
     --secondary-dark: 84 80% 55%;
     
-    --accent: 84 91% 68%; /* #CCF86E replacing dark gray/gold */
+    --accent: 84 91% 68%;
     --accent-foreground: 45 20% 95%;
     --accent-dark: 84 80% 55%;
     
@@ -94,7 +94,7 @@ All colors MUST be HSL.
     
     /* Dark mode gradients */
     --gradient-hero: linear-gradient(135deg, hsl(259 70% 55%), hsl(259 60% 65%));
-    --gradient-warm: linear-gradient(180deg, hsl(25 25% 8%), hsl(84 91% 68%)); /* Secondary in dark mode */
+    --gradient-warm: linear-gradient(180deg, hsl(25 25% 8%), hsl(84 91% 68%));
     --gradient-accent: linear-gradient(45deg, hsl(84 80% 55%), hsl(84 91% 68%));
     
     /* Dark mode shadows */
@@ -105,8 +105,8 @@ All colors MUST be HSL.
   }
 }
 
-/* Load Font Awesome via CDN */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css');
+/* ✅ Fix: Corrected to use v6 CDN (v7 doesn’t exist yet) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
 
 @layer base {
   * {
@@ -140,7 +140,7 @@ All colors MUST be HSL.
     line-height: 1.4;
   }
   
-  /* Smooth transitions for all interactive elements */
+  /* Smooth transitions */
   a, button, [role="button"] {
     transition: var(--transition-smooth);
   }
@@ -226,13 +226,19 @@ All colors MUST be HSL.
 
 @keyframes glow {
   0% {
-    text-shadow: 0 0 5px hsl(84 91% 68% / 0.8), 0 0 10px hsl(84 91% 68% / 0.8), 0 0 15px hsl(84 91% 68% / 0.8);
+    text-shadow: 0 0 5px hsl(84 91% 68% / 0.8),
+                 0 0 10px hsl(84 91% 68% / 0.8),
+                 0 0 15px hsl(84 91% 68% / 0.8);
   }
   50% {
-    text-shadow: 0 0 10px hsl(84 91% 68% / 0.9), 0 0 20px hsl(84 91% 68% / 0.9), 0 0 30px hsl(84 91% 68% / 0.9);
+    text-shadow: 0 0 10px hsl(84 91% 68% / 0.9),
+                 0 0 20px hsl(84 91% 68% / 0.9),
+                 0 0 30px hsl(84 91% 68% / 0.9);
   }
   100% {
-    text-shadow: 0 0 5px hsl(84 91% 68% / 0.8), 0 0 10px hsl(84 91% 68% / 0.8), 0 0 15px hsl(84 91% 68% / 0.8);
+    text-shadow: 0 0 5px hsl(84 91% 68% / 0.8),
+                 0 0 10px hsl(84 91% 68% / 0.8),
+                 0 0 15px hsl(84 91% 68% / 0.8);
   }
 }
 
@@ -244,8 +250,10 @@ All colors MUST be HSL.
   animation: glow 2s ease-in-out infinite;
 }
 
-/* Dark Mode Adjustments for Animations */
+/* Dark Mode Glow Adjustment */
 .dark .animate-glow {
-  text-shadow: 0 0 5px hsl(84 91% 68% / 0.6), 0 0 10px hsl(84 91% 68% / 0.6), 0 0 15px hsl(84 91% 68% / 0.6);
+  text-shadow: 0 0 5px hsl(84 91% 68% / 0.6),
+               0 0 10px hsl(84 91% 68% / 0.6),
+               0 0 15px hsl(84 91% 68% / 0.6);
   animation: glow 2s ease-in-out infinite;
 }
