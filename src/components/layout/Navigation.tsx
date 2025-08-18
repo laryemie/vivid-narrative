@@ -21,6 +21,11 @@ export const Navigation: React.FC = () => {
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
 
+  // Prevent background scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+  }, [isMenuOpen]);
+
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -67,9 +72,7 @@ export const Navigation: React.FC = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <div
-            className={`hidden md:flex items-center md:space-x-6 lg:space-x-8`}
-          >
+          <div className="hidden md:flex items-center md:space-x-6 lg:space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -124,46 +127,58 @@ export const Navigation: React.FC = () => {
       <div
         className={`${
           isMenuOpen ? "flex" : "hidden"
-        } md:hidden flex-col space-y-4 px-4 pb-4 bg-background/95 border-t border-border/50 transition-all duration-300 ease-in-out`}
+        } md:hidden flex-col items-center space-y-6 py-6 bg-background/95 border-t border-border/50 transition-all duration-300 ease-in-out`}
       >
-        {navItems.map((item) => (
-          <Link
-            key={item.name}
-            to={item.href}
-            onClick={() => setIsMenuOpen(false)}
-            className={`text-base font-medium py-2 px-3 rounded-lg transition-colors duration-200 hover:bg-primary/5 ${
-              location.pathname === item.href
-                ? "text-primary"
-                : "text-foreground"
-            }`}
+        {/* Mobile Links (styled like desktop) */}
+        <div className="flex flex-col items-center space-y-4 w-full">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.href}
+              onClick={() => setIsMenuOpen(false)}
+              className={`relative text-lg font-medium font-josefin transition-colors duration-200 hover:text-primary ${
+                location.pathname === item.href
+                  ? "text-primary"
+                  : "text-foreground"
+              } py-2 px-3`}
+            >
+              {item.name}
+              <span
+                className={`absolute inset-x-0 -bottom-1 h-0.5 bg-primary/0 group-hover:bg-primary/50 transition-all duration-200 ${
+                  location.pathname === item.href ? "bg-primary/50" : ""
+                }`}
+              ></span>
+            </Link>
+          ))}
+        </div>
+
+        {/* Mobile Buttons (same as desktop) */}
+        <div className="flex flex-col space-y-3 w-11/12">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-background/50 hover:bg-primary/10 transition-all duration-200 text-base border border-border/50"
+            aria-label="Toggle theme"
           >
-            {item.name}
-          </Link>
-        ))}
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setIsDarkMode(!isDarkMode)}
-          className="flex items-center gap-2 px-4 py-2 rounded-full bg-background/50 hover:bg-primary/10 transition-all duration-200 w-full text-sm border border-border/50"
-          aria-label="Toggle theme"
-        >
-          <i
-            className={`fas ${
-              isDarkMode ? "fa-moon" : "fa-sun"
-            } text-foreground`}
-          ></i>
-          <span>{isDarkMode ? "Dark" : "Light"}</span>
-        </Button>
-        <Button
-          variant="premium"
-          size="lg"
-          asChild
-          className="w-full text-base px-4 py-2.5 rounded-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all duration-200 shadow-md"
-        >
-          <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
-            Build Your Narrative
-          </Link>
-        </Button>
+            <i
+              className={`fas ${
+                isDarkMode ? "fa-moon" : "fa-sun"
+              } text-foreground`}
+            ></i>
+            <span>{isDarkMode ? "Dark" : "Light"}</span>
+          </Button>
+          <Button
+            variant="premium"
+            size="lg"
+            asChild
+            className="w-full text-lg px-4 py-3 rounded-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all duration-200 shadow-md"
+          >
+            <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+              Build Your Narrative
+            </Link>
+          </Button>
+        </div>
       </div>
     </nav>
   );

@@ -12,7 +12,7 @@ export const HeroSection: React.FC = () => {
 
   return (
     <section className="relative min-h-screen flex items-center bg-[url('/vivid-narrative-uploads/hero.jpg')] bg-cover bg-center">
-      {/* Overlay for better text readability */}
+      {/* Overlay for readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/20 md:from-background/70 md:to-transparent" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -56,7 +56,7 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll Down Chevron (only on mobile/tablet) */}
+      {/* Scroll Down Chevron (mobile only) */}
       <button
         onClick={handleScroll}
         className="absolute bottom-6 left-1/2 transform -translate-x-1/2 md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-background/70 backdrop-blur-md shadow-lg hover:bg-primary/80 transition-colors duration-300"
