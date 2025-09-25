@@ -135,7 +135,7 @@ const Footer: React.FC = () => {
             <div className="p-4 transition-opacity duration-300 delay-700">
               <div className="bg-gradient-to-r from-secondary/80 to-secondary/20 rounded-lg p-4 h-full shadow-soft border-4 border-primary">
                 <img
-                  src="/vivid-narrative-Uploads/Purple.png"
+                  src="/vivid-narrative-uploads/Purple.png"
                   alt="Vivid Narrative Logo"
                   className="mx-auto mb-3 max-w-[200px] h-auto"
                   onError={(e) => {

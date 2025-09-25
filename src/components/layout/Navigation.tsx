@@ -9,7 +9,6 @@ export const Navigation: React.FC = () => {
     () => localStorage.getItem("theme") === "dark"
   );
 
-  // Sync theme with localStorage
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDarkMode);
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
@@ -26,18 +25,17 @@ export const Navigation: React.FC = () => {
     <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50 shadow-sm">
       <div className="container mx-auto px-2 sm:px-4 py-1 sm:py-2">
         <div className="flex flex-nowrap items-center justify-between gap-1 sm:gap-2">
-          {/* Logo */}
           <Link
             to="/"
             className="relative group transition-transform duration-300 hover:scale-105"
             aria-label="Go to homepage"
           >
             {/* Mobile Logo (visible below sm) */}
-            <div className="sm:hidden relative w-24 aspect-[1/1] flex items-center">
+            <div className="sm:hidden relative w-16 aspect-[1/1] flex items-center">
               <img
                 src="/favicon.ico"
                 alt="Mobile Logo"
-                className="w-full h-auto object-contain"
+                className="w-1/2 h-auto object-contain"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.src = 'https://via.placeholder.com/24?text=Logo';
@@ -46,23 +44,18 @@ export const Navigation: React.FC = () => {
               <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary/0 group-hover:bg-primary/50 rounded-full transition-all duration-300" />
             </div>
             {/* Desktop Logo (visible sm and above) */}
-            <div className="hidden sm:flex relative w-20 md:w-24 lg:w-28 aspect-[5/1] items-center">
+            <div className="hidden sm:flex relative w-16 md:w-20 lg:w-24 aspect-[5/1] items-center">
               <Logo className="w-full h-auto object-contain" />
               <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary/0 group-hover:bg-primary/50 rounded-full transition-all duration-300" />
             </div>
           </Link>
-
-          {/* Navigation Links */}
           <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-4 lg:space-x-6">
             {navItems.map((item) => (
               <React.Fragment key={item.name}>
-                {/* Mobile Icons (visible below sm) */}
                 <Link
                   to={item.href}
                   className={`sm:hidden relative text-xs font-medium font-josefin transition-colors duration-200 hover:text-primary ${
-                    location.pathname === item.href
-                      ? "text-primary"
-                      : "text-foreground"
+                    location.pathname === item.href ? "text-primary" : "text-foreground"
                   } py-1 px-0.5`}
                   aria-label={item.name}
                 >
@@ -73,13 +66,10 @@ export const Navigation: React.FC = () => {
                     }`}
                   />
                 </Link>
-                {/* Desktop Text Links (visible sm and above) */}
                 <Link
                   to={item.href}
                   className={`hidden sm:block relative text-sm sm:text-base md:text-base lg:text-lg font-medium font-josefin transition-colors duration-200 hover:text-primary ${
-                    location.pathname === item.href
-                      ? "text-primary"
-                      : "text-foreground"
+                    location.pathname === item.href ? "text-primary" : "text-foreground"
                   } py-1 px-1 sm:px-2`}
                 >
                   {item.name}
@@ -92,8 +82,6 @@ export const Navigation: React.FC = () => {
               </React.Fragment>
             ))}
           </div>
-
-          {/* Buttons */}
           <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3">
             <Button
               variant="ghost"
@@ -102,12 +90,8 @@ export const Navigation: React.FC = () => {
               aria-label={`Switch to ${isDarkMode ? "light" : "dark"} mode`}
               className="flex items-center gap-1 px-1 sm:px-2 py-1 sm:py-1.5 rounded-full bg-background/50 hover:bg-primary/10 transition-all duration-200 text-xs sm:text-sm border border-border/50"
             >
-              <i
-                className={`fas ${isDarkMode ? "fa-moon" : "fa-sun"} text-foreground`}
-              />
-              <span className="hidden sm:inline">
-                {isDarkMode ? "Dark" : "Light"}
-              </span>
+              <i className={`fas ${isDarkMode ? "fa-moon" : "fa-sun"} text-foreground`} />
+              <span className="hidden sm:inline">{isDarkMode ? "Dark" : "Light"}</span>
             </Button>
             <Button
               variant="premium"

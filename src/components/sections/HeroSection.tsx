@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-[70vh] sm:min-h-screen flex items-center bg-[url('/vivid-narrative-uploads/hero.jpg')] bg-cover bg-center bg-no-repeat">
+    <section className="relative min-h-[50vh] sm:min-h-screen flex items-center bg-[url('/vivid-narrative-uploads/hero.jpg')] bg-cover bg-center bg-no-repeat">
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/20 md:from-background/70 md:via-background/50 md:to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/20 sm:from-background/70 sm:via-background/50 sm:to-transparent" />
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto">
           <div className="max-w-3xl text-center lg:text-left">
