@@ -1,17 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import emailjs from '@emailjs/browser';
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
+  const form = useRef<HTMLFormElement>(null);
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
-  const handleSignUp = () => {
-    // Placeholder for newsletter signup logic
-    console.log('Sign up with email:', email);
+  const handleSignUp = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (form.current) {
+      emailjs
+        .sendForm(
+          'service_c9fnkn1', // Replace with your EmailJS Service ID
+          'template_z3qxf97', // Replace with your EmailJS Template ID (template should send to hello@vividnarrative.com and include {{subscriber_email}})
+          form.current,
+          'C07tHoT3yi_KIPrlU' // Replace with your EmailJS Public Key (User ID)
+        )
+        .then(
+          (result) => {
+            console.log('Success:', result.text);
+            setEmail('');
+            alert('Subscribed successfully!');
+          },
+          (error) => {
+            console.log('Error:', error.text);
+            alert('Failed to subscribe. Please try again.');
+          }
+        );
+    }
   };
 
   return (
@@ -28,28 +49,30 @@ const Footer: React.FC = () => {
                   <p className="text-primary mb-4">
                     Stay updated with our latest insights and offerings. Subscribe to our newsletter.
                   </p>
-                  <div className="relative">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={handleEmailChange}
-                      placeholder="Enter your email"
-                      className="w-full rounded-full py-3 px-4 border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                      required
-                    />
-                    <Button
-                      variant="premium"
-                      size="sm"
-                      className="absolute top-1/2 right-2 transform -translate-y-1/2 rounded-full py-2 px-4"
-                      onClick={handleSignUp}
-                    >
-                      Sign Up
-                    </Button>
-                  </div>
+                  <form ref={form} onSubmit={handleSignUp}>
+                    <div className="relative">
+                      <input
+                        type="email"
+                        name="subscriber_email" // Name for EmailJS template variable
+                        value={email}
+                        onChange={handleEmailChange}
+                        placeholder="Enter your email"
+                        className="w-full rounded-full py-3 px-4 border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                        required
+                      />
+                      <Button
+                        variant="premium"
+                        size="sm"
+                        type="submit"
+                        className="absolute top-1/2 right-2 transform -translate-y-1/2 rounded-full py-2 px-4"
+                      >
+                        Sign Up
+                      </Button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
-
             {/* Explore */}
             <div className="p-4 transition-opacity duration-300 delay-300">
               <div className="bg-gradient-to-r from-secondary/80 to-secondary/20 rounded-lg p-4 h-full shadow-soft border-4 border-primary">
@@ -70,7 +93,6 @@ const Footer: React.FC = () => {
                       <i className="fa-solid fa-info-circle mr-2"></i> About Us
                     </Link>
                   </li>
-                  
                   <li>
                     <Link to="/contact" className="text-foreground hover:text-primary flex items-center">
                       <i className="fa-solid fa-envelope mr-2"></i> Book A Discovery Call
@@ -79,7 +101,6 @@ const Footer: React.FC = () => {
                 </ul>
               </div>
             </div>
-
             {/* Contact Info */}
             <div className="p-4 transition-opacity duration-300 delay-500">
               <div className="bg-gradient-to-r from-secondary/20 to-secondary/80 rounded-lg p-4 h-full shadow-soft border-4 border-primary">
@@ -109,12 +130,11 @@ const Footer: React.FC = () => {
                 </div>
               </div>
             </div>
-
             {/* Logo */}
             <div className="p-4 transition-opacity duration-300 delay-700">
               <div className="bg-gradient-to-r from-secondary/80 to-secondary/20 rounded-lg p-4 h-full shadow-soft border-4 border-primary">
                 <img
-                  src="/vivid-narrative-uploads/Purple.png" 
+                  src="/vivid-narrative-uploads/Purple.png"
                   alt="Vivid Narrative Logo"
                   className="mx-auto mb-3 max-w-[200px] h-auto"
                   onError={(e) => {
@@ -128,7 +148,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </footer>
-
       {/* Copyright Start */}
       <div className="py-4 bg-card">
         <div className="container mx-auto px-6">
