@@ -1,11 +1,12 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import emailjs from '@emailjs/browser';
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
   const form = useRef<HTMLFormElement>(null);
+  const navigate = useNavigate();
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -16,16 +17,16 @@ const Footer: React.FC = () => {
     if (form.current) {
       emailjs
         .sendForm(
-          'service_c9fnkn1', // Replace with your EmailJS Service ID
-          'template_z3qxf97', // Replace with your EmailJS Template ID (template should send to hello@vividnarrative.com and include {{subscriber_email}})
+          'service_c9fnkn1',
+          'template_z3qxf97',
           form.current,
-          'C07tHoT3yi_KIPrlU' // Replace with your EmailJS Public Key (User ID)
+          'C07tHoT3yi_KIPrlU'
         )
         .then(
           (result) => {
             console.log('Success:', result.text);
             setEmail('');
-            alert('Subscribed successfully!');
+            navigate('/newsletter-confirmation');
           },
           (error) => {
             console.log('Error:', error.text);
@@ -53,7 +54,7 @@ const Footer: React.FC = () => {
                     <div className="relative">
                       <input
                         type="email"
-                        name="subscriber_email" // Name for EmailJS template variable
+                        name="subscriber_email"
                         value={email}
                         onChange={handleEmailChange}
                         placeholder="Enter your email"
@@ -134,7 +135,7 @@ const Footer: React.FC = () => {
             <div className="p-4 transition-opacity duration-300 delay-700">
               <div className="bg-gradient-to-r from-secondary/80 to-secondary/20 rounded-lg p-4 h-full shadow-soft border-4 border-primary">
                 <img
-                  src="/vivid-narrative-uploads/Purple.png"
+                  src="/vivid-narrative-Uploads/Purple.png"
                   alt="Vivid Narrative Logo"
                   className="mx-auto mb-3 max-w-[200px] h-auto"
                   onError={(e) => {
