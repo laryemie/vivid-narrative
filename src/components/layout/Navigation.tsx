@@ -33,7 +33,7 @@ export const Navigation: React.FC = () => {
             {/* Mobile Logo (visible below sm) */}
             <div className="sm:hidden relative w-16 aspect-[1/1] flex items-center">
               <img
-                src="/favicon.ico"
+                src="/mobile.png"
                 alt="Mobile Logo"
                 className="w-1/2 h-auto object-contain"
                 onError={(e) => {
