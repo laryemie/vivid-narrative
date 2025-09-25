@@ -31,7 +31,7 @@ export const Navigation: React.FC = () => {
             aria-label="Go to homepage"
           >
             {/* Mobile Logo (visible below sm) */}
-            <div className="sm:hidden relative w-16 aspect-[1/1] flex items-center">
+            <div className="sm:hidden relative w-20 aspect-[1/1] flex items-center">
               <img
                 src="/mobile.png"
                 alt="Mobile Logo"
@@ -44,7 +44,7 @@ export const Navigation: React.FC = () => {
               <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary/0 group-hover:bg-primary/50 rounded-full transition-all duration-300" />
             </div>
             {/* Desktop Logo (visible sm and above) */}
-            <div className="hidden sm:flex relative w-16 md:w-20 lg:w-24 aspect-[5/1] items-center">
+            <div className="hidden sm:flex relative w-20 md:w-20 lg:w-24 aspect-[5/1] items-center">
               <Logo className="w-full h-auto object-contain" />
               <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary/0 group-hover:bg-primary/50 rounded-full transition-all duration-300" />
             </div>
