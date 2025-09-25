@@ -32,7 +32,21 @@ export const Navigation: React.FC = () => {
             className="relative group transition-transform duration-300 hover:scale-105"
             aria-label="Go to homepage"
           >
-            <div className="relative w-24 sm:w-20 md:w-24 lg:w-28 aspect-[5/1] flex items-center">
+            {/* Mobile Logo (visible below sm) */}
+            <div className="sm:hidden relative w-24 aspect-[1/1] flex items-center">
+              <img
+                src="/favicon.ico"
+                alt="Mobile Logo"
+                className="w-full h-auto object-contain"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = 'https://via.placeholder.com/24?text=Logo';
+                }}
+              />
+              <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary/0 group-hover:bg-primary/50 rounded-full transition-all duration-300" />
+            </div>
+            {/* Desktop Logo (visible sm and above) */}
+            <div className="hidden sm:flex relative w-20 md:w-24 lg:w-28 aspect-[5/1] items-center">
               <Logo className="w-full h-auto object-contain" />
               <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary/0 group-hover:bg-primary/50 rounded-full transition-all duration-300" />
             </div>
